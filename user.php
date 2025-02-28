@@ -1,71 +1,60 @@
 <?php
-  session_start();
-  if (isset($_SESSION["role"]) && isset($_SESSION["id"]) && isset($_SESSION["role"])=="admin") 
-  {
-    include "DB_connection.php";
-    include "app/mode1/user.php";
-    $users=get_all_users($conn);
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Manage Users</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
-	<input type="checkbox" id="checkbox">
-	<?php include "inc/header.php";?>
-	<div class="body">
-	<?php include "inc/nav.php";?>
-		<section class="section-1">
-           <h4 class="title">Manage Users <a href="add-user.php">Add User</a></h4>
-           <?php
-   if(isset($_GET["success"])) {?>
-   <div class="success" role="alert">
-   <?php echo stripcslashes($_GET["success"]); ?>
-   </div>
-   <?php }?>
-           <?php if($users != 0)
-           { ?>
+function get_all_users($conn)
 
-			<table class="main-table">
-        <tr>
-          <th>#</th>
-          <th>Full Name</th>
-          <th>Username</th>
-          <th>role</th>
-          <th>Action</th>
-        </tr>
-          <?php $i=0; foreach($users as $user)
-          {?>
-        <tr>
-          <td><?=++$i?></td>
-          <td><?=$user['full_name']?></td>
-          <td><?=$user['username']?></td>
-          <td><?=$user['role']?></td>
-          <td>Employee</td>
-          <td>
-            <a href="edit-user.php?id=<?=$user['id']?>" class="edit-btn">Edit</a>
-            <a href="delete-user.php?id=<?=$user['id']?>"class="delete-btn">Delete</a>
-        </td>
-        </tr>
-        <?php }?>
-      </table>
-      <?php } else { ?>
-        <h3>Empty</h3>
-      <?php } ?>
-		</section>
-	</div>
-	<script type="text/javascript">
-		var active = document.querySelector("#navList li:nth-child(2)");
-		active.classList.add("active");
-	</script>
-</body>
-</html>
-<?php }else{ 
-	  $em="First login";
-	  header("Location: login.php?error=$em");
-	  exit();
+{
+    $sql="SELECT * FROM users WHERE role =?";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute(["employee"]);
+    if($stmt->rowCount()> 0)
+    {
+        $users=$stmt->fetchAll();
+    }
+    else $users=0;
+    return $users;
 }
-	?>
+
+function insert_user($conn,$data)
+{
+    $sql="INSERT INTO users(full_name, username, password,role) VALUES(?,?,?,?)";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute($data);
+}
+function update_user($conn,$data)
+{
+    $sql="UPDATE users SET full_name=?, username=?, password=?,role=? WHERE id=? AND role=?";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute($data);
+}
+function delete_user($conn,$data)
+{
+    $sql="DELETE FROM users WHERE id=? AND role=?";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute($data);
+}
+
+function get_user_by_id($conn,$id)
+
+{
+    $sql="SELECT * FROM users WHERE id =?";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute([$id]);
+    if($stmt->rowCount()> 0)
+    {
+        $user=$stmt->fetch();
+    }
+    else $user=0;
+    return $user;
+}
+function update_profile($conn,$data)
+{
+    $sql="UPDATE users SET full_name=?, password=? WHERE id=?";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute($data);
+}
+function count_users($conn)
+{
+    $sql="SELECT id FROM users WHERE role='employee'";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute([]);
+    return $stmt->rowCount();
+}
