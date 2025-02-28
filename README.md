@@ -4,8 +4,80 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=amansingh602&label=Profile%20views&color=0e75b6&style=flat" alt="amansingh602" /> </p>
 
 - 🔭 I’m currently working on **Employee Task Management System**
+
+- <h4>TASKFLOW</h4>
 - <p>TASKFLOW is a simple yet powerful web-based Employee Task Management System designed to improve task organization and productivity in workplaces. It enables employees to keep track of their assigned tasks, receive due date notifications, monitor deadlines, and update task completion status—all in one place.</p>
 
+<h2>Key Features:</h2>
+<div class="feature">
+            <span class="feature-icon">✅</span>
+            <span><strong>Task Management</strong> – View, update, and manage assigned tasks effortlessly.</span>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">✅</span>
+            <span><strong>Progress Tracking</strong> – Update task statuses to keep everything on track.</span>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">✅</span>
+            <span><strong>Deadline Reminders</strong> – Get automatic alerts for upcoming task deadlines.</span>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">✅</span>
+            <span><strong>User-Friendly Interface</strong> – A clean and intuitive design for a smooth experience.</span>
+        </div>
+    </div>
+    <br>
+    <div class="tech-container">
+        <h2 class="tech-title">🛠 Technologies Used</h2>
+        <div class="tech-item">
+            <span class="tech-icon">🖥️</span>
+            <span><strong>Frontend:</strong> HTML, CSS, JavaScript</span>
+        </div>
+        <div class="tech-item">
+            <span class="tech-icon">⚙️</span>
+            <span><strong>Backend:</strong> PHP, MySQL</span>
+        </div>
+    </div>
+    <br>
+<div class="how-it-works-container">
+        <h2 class="section-title">📌 How It Works</h2>
+        <div class="step">
+            <span class="step-icon">👤</span>
+            <span><strong>Employees:</strong> Log in to view and manage assigned tasks.</span>
+        </div>
+        <div class="step">
+            <span class="step-icon">🛠️</span>
+            <span><strong>Admins:</strong> Assign tasks, monitor progress, and oversee task completion.</span>
+        </div>
+        <div class="step">
+            <span class="step-icon">🔔</span>
+            <span><strong>Notifications:</strong> Stay updated with automatic due-date reminders.</span>
+        </div>
+    </div>
+    <br>
+    div class="contribute-container">
+        <h2 class="section-title">🤝 Contributing</h2>
+        <p class="contribute-text">
+            I welcome contributions from the community! If you'd like to contribute to improving <strong>TASKFLOW</strong>, here’s how you can help:
+        </p>
+        <div class="step">
+            <span class="step-icon">📌</span>
+            <span><strong>Report Issues:</strong> Found a bug or have a suggestion? Open an issue.</span>
+        </div>
+        <div class="step">
+            <span class="step-icon">🔧</span>
+            <span><strong>Submit Pull Requests:</strong> Fork the repository, make changes, and submit a PR.</span>
+        </div>
+        <div class="step">
+            <span class="step-icon">📖</span>
+            <span><strong>Improve Documentation:</strong> Help us keep the documentation clear and up to date.</span>
+        </div>
+        <p class="contribute-text">
+            Thank you for helping make TASKFLOW better! 🚀
+        </p>
+    </div>
+
+<br>
 - 📫 How to reach me **amankrsingh605@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
